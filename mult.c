@@ -28,7 +28,7 @@ unsigned int multPolinom(unsigned int f, unsigned int g, unsigned int m){
     return res;
 }
 
-unsigned int mult_by_x(unsigned int f, unsigned int m){
+unsigned int mult_by_x(unsigned int f, unsigned int m){     //Function that multiplies by x, the polynom f
     int a = 0;
     if( f >= (1<<(POL_GRADE-1)) )   //vemos si el bit más significativo de f está encendido
         a=1;
