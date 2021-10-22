@@ -8,14 +8,10 @@ unsigned int mult_by_x(unsigned int f, unsigned int m);
 int main(){
     int m=283;  //polinomio de AES
     int a = 67;
-    //int n = multPolinom(2,31,257);
     //printf("%d\n", multPolinom(141,2,m));
-    //printf("%d\n", mult_by_x(21,a));
 
-    for (size_t i = 0; i < 256; i++)
-    {
-        for (size_t j = 0; j < 256; j++)
-        {
+    for (size_t i = 0; i < 256; i++){
+        for (size_t j = 0; j < 256; j++){
             //printf("%x\t", multPolinom(i,j,m));
             if( multPolinom(i,j,m) == 1 )
                 printf("i: %x\tj: %x\n",i,j);
@@ -37,9 +33,7 @@ unsigned int multPolinom(unsigned int f, unsigned int g, unsigned int m){
             }
             res = res ^ prod;
         }
-        
     }
-    
     return res;
 }
 
