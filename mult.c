@@ -1,25 +1,26 @@
 #include <stdio.h>
-#define POL_GRADE 8     // Grado del polinomio irreducible m
+#define POL_GRADE 6     // Grado del polinomio irreducible m
 
 unsigned int multPolinom(unsigned int f, unsigned int g, unsigned int m);
 unsigned int mult_by_x(unsigned int f, unsigned int m);
 
-
 int main(){
-    int m=283;  //polinomio de AES
-    int a = 67;
+    //int m=283;  //polinomio de AES
+    int m = 67;   //x6 + x + 1
     //printf("%d\n", multPolinom(141,2,m));
 
-    for (size_t i = 0; i < 256; i++){
-        for (size_t j = 0; j < 256; j++){
-            //printf("%x\t", multPolinom(i,j,m));
+    for (size_t i = 0; i < (1<<POL_GRADE); i++){
+        if( !(i%16) )
+            printf("\n---------------------------------------------------------------------------------\n");
+        for (size_t j = 0; j < (1<<POL_GRADE); j++){
+            if(!(i||j))
+                printf("0:0\t");
             if( multPolinom(i,j,m) == 1 )
-                printf("i: %x\tj: %x\n",i,j);
+                printf("%x:%x\t",i,j);
         }
-        //printf("\n");
+        
     }
     
-
     return 0;
 }
 
