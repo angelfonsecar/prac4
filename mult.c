@@ -1,11 +1,11 @@
 #include <stdio.h>
-#define POL_GRADE 6     // Grado del polinomio irreducible m
+#define POL_GRADE 6     //Grade of irreducible polynomial m
 
 unsigned int multPolinom(unsigned int f, unsigned int g, unsigned int m);
 unsigned int mult_by_x(unsigned int f, unsigned int m);
 
 int main(){
-    //int m=283;  //polinomio de AES
+    //int m=283;  //AES polynomial
     int m = 67;   //x6 + x + 1
     //printf("%d\n", multPolinom(141,2,m));
 
@@ -20,7 +20,6 @@ int main(){
         }
         
     }
-    
     return 0;
 }
 
@@ -40,7 +39,7 @@ unsigned int multPolinom(unsigned int f, unsigned int g, unsigned int m){
 
 unsigned int mult_by_x(unsigned int f, unsigned int m){     //Function that multiplies by x, the polynomial f
     int a = 0;
-    if( f >= (1<<(POL_GRADE-1)) )   //vemos si el bit más significativo de f está encendido
+    if( f >= (1<<(POL_GRADE-1)) )   //Check if the most significative bit of f is 1
         a=1;
     f = f<<1 & ((1<<POL_GRADE)-1);
     if(a)
